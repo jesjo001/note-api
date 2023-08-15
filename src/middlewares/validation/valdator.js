@@ -7,7 +7,26 @@ export const userValidationRules = () => {
         body("password").not().isEmpty(),
         body("firstname").not().isEmpty(),
         body("lastname").not().isEmpty(),
+        body("username").optional(),
     ]
+}
+
+export const todoValidationRules = () => {
+  return [
+      body("title").not().isEmpty(),
+      body("description").not().isEmpty(),
+      body("isPrivate").optional(),
+      body("date").not().isEmpty(),
+  ]
+}
+
+export const todoUpdateValidationRules = () => {
+  return [
+      body("title").optional(),
+      body("description").optional(),
+      body("isPrivate").optional(),
+      body("date").optional(),
+  ]
 }
 
 export const sessionValidationRules = () => {
