@@ -4,6 +4,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import connect from './db/connect'
 import Routes from "./routes/Routes"
+import deserializeUser from './middlewares/deserializeUser'
 config()
 
 const app = express()
@@ -26,6 +27,8 @@ var corsOptions = {
 
 
 //middlewares
+app.use(deserializeUser);
+
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
